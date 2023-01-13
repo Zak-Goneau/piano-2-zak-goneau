@@ -1,4 +1,11 @@
 input.onButtonPressed(Button.A, function () {
+    basic.showLeds(`
+        # # # # #
+        # . . . #
+        # # # # #
+        # . . . #
+        # # # # #
+        `)
     if (pins.digitalReadPin(DigitalPin.P6) == 1) {
         music.playTone(131, music.beat(BeatFraction.Half))
     }
@@ -22,6 +29,13 @@ input.onButtonPressed(Button.A, function () {
     }
 })
 input.onButtonPressed(Button.B, function () {
+    basic.showLeds(`
+        # # # # #
+        # . # . #
+        # . # . #
+        # . # . #
+        # # # # #
+        `)
     if (pins.digitalReadPin(DigitalPin.P6) == 1) {
         music.playTone(523, music.beat(BeatFraction.Half))
     }
@@ -61,13 +75,6 @@ input.onGesture(Gesture.Shake, function () {
             . . # . .
             `)
     }
-    basic.showLeds(`
-        # # # # #
-        # . . . #
-        # . # . #
-        # . . . #
-        # # # # #
-        `)
 })
 basic.showLeds(`
     # # # # #
