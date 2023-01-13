@@ -28,6 +28,9 @@ input.onButtonPressed(Button.A, function () {
         music.playTone(247, music.beat(BeatFraction.Half))
     }
 })
+input.onButtonPressed(Button.AB, function () {
+    music.setVolume(music.volume() + 10)
+})
 input.onButtonPressed(Button.B, function () {
     basic.showLeds(`
         # # # # #
@@ -59,23 +62,9 @@ input.onButtonPressed(Button.B, function () {
     }
 })
 input.onGesture(Gesture.Shake, function () {
-    for (let index = 0; index < 4; index++) {
-        basic.showLeds(`
-            # . . . #
-            . # . # .
-            . . # . .
-            . # . # .
-            # . . . #
-            `)
-        basic.showLeds(`
-            . . # . .
-            . . # . .
-            # # # # #
-            . . # . .
-            . . # . .
-            `)
-    }
+    music.setVolume(music.volume() - 10)
 })
+music.setVolume(100)
 basic.showLeds(`
     # # # # #
     # . . . #
