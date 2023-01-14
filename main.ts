@@ -1,10 +1,11 @@
+// When button A is pressed notes will change to low.
 input.onButtonPressed(Button.A, function () {
     basic.showLeds(`
-        # # # # #
-        # . . . #
-        # # # # #
-        # . . . #
-        # # # # #
+        # . . . .
+        # . . . .
+        # . . . .
+        # . . . .
+        # # # . .
         `)
     if (pins.digitalReadPin(DigitalPin.P6) == 1) {
         music.playTone(131, music.beat(BeatFraction.Half))
@@ -28,16 +29,18 @@ input.onButtonPressed(Button.A, function () {
         music.playTone(247, music.beat(BeatFraction.Half))
     }
 })
+// When A + B is pressed volume goes up by 10.
 input.onButtonPressed(Button.AB, function () {
     music.setVolume(music.volume() + 10)
 })
+// When button B is pressed notes change to high.
 input.onButtonPressed(Button.B, function () {
     basic.showLeds(`
+        # . . . #
+        # . . . #
         # # # # #
-        # . # . #
-        # . # . #
-        # . # . #
-        # # # # #
+        # . . . #
+        # . . . #
         `)
     if (pins.digitalReadPin(DigitalPin.P6) == 1) {
         music.playTone(523, music.beat(BeatFraction.Half))
@@ -61,16 +64,18 @@ input.onButtonPressed(Button.B, function () {
         music.playTone(988, music.beat(BeatFraction.Half))
     }
 })
+// When shaken volume goes down by 10.
 input.onGesture(Gesture.Shake, function () {
     music.setVolume(music.volume() - 10)
 })
+// Sets pins to notes on medium, sets volume too.
 music.setVolume(100)
 basic.showLeds(`
-    # # # # #
     # . . . #
+    # # . # #
     # . # . #
     # . . . #
-    # # # # #
+    # . . . #
     `)
 if (pins.digitalReadPin(DigitalPin.P6) == 1) {
     music.playTone(262, music.beat(BeatFraction.Half))
